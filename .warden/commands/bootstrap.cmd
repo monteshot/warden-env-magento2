@@ -239,7 +239,7 @@ elif [[ ${CLEAN_INSTALL} ]]; then
 
   INSTALL_FLAGS="${INSTALL_FLAGS} \
     --cleanup-database \
-    --backend-frontname=backend \
+    --backend-frontname=admin \
     --db-host=db \
     --db-name=magento \
     --db-user=magento \
