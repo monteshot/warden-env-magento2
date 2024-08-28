@@ -350,4 +350,5 @@ function print_install_info {
     printf "+ %*.*s + %*.*s + \n" 0 $C1_LEN $FILL 0 $C2_LEN $FILL
 }
 warden env exec -T php-fpm bin/magento mo:d Magento_TwoFactorAuth Magento_AdminAdobeImsTwoFactorAuth 
+warden env exec -T php-fpm bin/magento c:f
 print_install_info
