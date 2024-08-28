@@ -282,7 +282,7 @@ fi
 
 :: Flushing cache
 warden env exec -T php-fpm bin/magento cache:flush
-warden env exec -T php-fpm bin/magento cache:disable block_html full_page
+warden env exec -T php-fpm bin/magento cache:disable block_html full_page layout
 
 :: Creating admin user
 ADMIN_PASS=$(warden env exec -T php-fpm pwgen -n1 16)
@@ -301,7 +301,6 @@ warden env exec -T php-fpm bin/magento admin:user:create \
     --admin-firstname="Local" \
     --admin-lastname="Admin" \
     --admin-email="monteshot@perspectiveteam.com"
-warden env exec -T php-fpm bin/magento mo:d Magento_TwoFactorAuth Magento_AdminAdobeImsTwoFactorAuth 
 OTPAUTH_QRI=
 if test $(version $(warden env exec -T php-fpm bin/magento -V | awk '{print $3}')) -ge $(version 2.4.0); then
   TFA_SECRET=$(warden env exec -T php-fpm pwgen -A1 128)
@@ -346,4 +345,5 @@ function print_install_info {
     printf "+ %-*s + %-*s + \n" $C1_LEN Password $C2_LEN "$ADMIN_PASS"
     printf "+ %*.*s + %*.*s + \n" 0 $C1_LEN $FILL 0 $C2_LEN $FILL
 }
+warden env exec -T php-fpm bin/magento mo:d Magento_TwoFactorAuth Magento_AdminAdobeImsTwoFactorAuth 
 print_install_info
