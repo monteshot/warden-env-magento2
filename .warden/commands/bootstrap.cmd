@@ -95,7 +95,7 @@ if [[ $OSTYPE =~ ^darwin ]] && ! which mutagen 2>/dev/null >/dev/null && which b
 fi
 
 ## check for presence of host machine dependencies
-for DEP_NAME in warden mutagen docker-compose pv; do
+for DEP_NAME in warden mutagen pv; do
   if [[ "${DEP_NAME}" = "mutagen" ]] && [[ ! $OSTYPE =~ ^darwin ]]; then
     continue
   fi
@@ -108,7 +108,7 @@ done
 
 ## verify warden version constraint
 WARDEN_VERSION=$(warden version 2>/dev/null) || true
-WARDEN_REQUIRE=0.6.0
+WARDEN_REQUIRE=in-dev
 if ! test $(version ${WARDEN_VERSION}) -ge $(version ${WARDEN_REQUIRE}); then
   error "Warden ${WARDEN_REQUIRE} or greater is required (version ${WARDEN_VERSION} is installed)"
   INIT_ERROR=1
