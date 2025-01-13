@@ -62,13 +62,18 @@ return [
                     'flat_catalog_product' => '0'
                 ],
                 'search' => [
-                    'engine' => 'elasticsearch7',
+                    'engine' => 'opensearch',
                     'enable_eav_indexer' => '1',
-                    'elasticsearch7_server_hostname' => 'opensearch',
+                    'elasticsearch7_server_hostname' => 'elasticsearch',
                     'elasticsearch7_server_port' => '9200',
                     'elasticsearch7_index_prefix' => 'magento2',
                     'elasticsearch7_enable_auth' => '0',
-                    'elasticsearch7_server_timeout' => '15'
+                    'elasticsearch7_server_timeout' => '15',
+                    'opensearch_server_hostname' => 'opensearch',
+                    'opensearch_server_port' => '9200',
+                    'opensearch_index_prefix' => 'magento2',
+                    'opensearch_enable_auth' => '0',
+                    'opensearch_server_timeout' => '15'
                 ]
             ],
             'system' => [
