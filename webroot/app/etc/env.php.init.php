@@ -64,7 +64,7 @@ return [
                 'search' => [
                     'engine' => 'elasticsearch7',
                     'enable_eav_indexer' => '1',
-                    'elasticsearch7_server_hostname' => 'elasticsearch',
+                    'elasticsearch7_server_hostname' => 'opensearch',
                     'elasticsearch7_server_port' => '9200',
                     'elasticsearch7_index_prefix' => 'magento2',
                     'elasticsearch7_enable_auth' => '0',
